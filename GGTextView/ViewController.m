@@ -25,7 +25,7 @@
 }
 -(UITableView *)dataTabelview{
     if (!_dataTabelview) {
-        _dataTabelview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
+        _dataTabelview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStyleGrouped];
         _dataTabelview.delegate = self;
         _dataTabelview.dataSource = self;
         
@@ -40,7 +40,21 @@
     [self.view addSubview:self.dataTabelview];
     [self.dataTabelview reloadData];
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30.0f;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)];
+    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(15, 5, self.view.frame.size.width-30, 20)];
+    label.text = @"测试版本";
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentCenter;
+    [headView addSubview:label];
+    return headView;
+    
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return  self.dataArray.count;
 }
