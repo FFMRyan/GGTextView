@@ -117,7 +117,7 @@
     _ggTextView.font = _textFont;
     
     _placeholderFont = _textFont;
-    _placeholderColor = [UIColor blueColor];
+    _placeholderColor = [UIColor grayColor];
     
     _LineSpacing = 0;
     

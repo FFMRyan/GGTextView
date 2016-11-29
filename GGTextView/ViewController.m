@@ -41,15 +41,16 @@
     [self.dataTabelview reloadData];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30.0f;
+    return 20.0f;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)];
-    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(15, 5, self.view.frame.size.width-30, 20)];
-    label.text = @"测试版本";
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    headView.backgroundColor = [UIColor grayColor];
+    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, self.view.frame.size.width-30, 20)];
+    label.text = @"报销明细";
     label.textColor = [UIColor blackColor];
-    label.font = [UIFont systemFontOfSize:15];
+    label.font = [UIFont systemFontOfSize:13];
     label.textAlignment = NSTextAlignmentCenter;
     [headView addSubview:label];
     return headView;
@@ -99,7 +100,6 @@
     
     
 }
-
 
 
 - (void)didReceiveMemoryWarning {
